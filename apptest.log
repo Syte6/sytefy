@@ -1,0 +1,662 @@
+/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/pytest_asyncio/plugin.py:208: PytestDeprecationWarning: The configuration option "asyncio_default_fixture_loop_scope" is unset.
+The event loop scope for asynchronous fixtures will default to the fixture caching scope. Future versions of pytest-asyncio will default the loop scope for asynchronous fixtures to function scope. Set the default fixture loop scope explicitly in order to avoid unexpected behavior in the future. Valid fixture loop scopes are: "function", "class", "module", "package", "session"
+
+  warnings.warn(PytestDeprecationWarning(_DEFAULT_FIXTURE_LOOP_SCOPE_UNSET))
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-8.3.2, pluggy-1.6.0 -- /home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/bin/python
+cachedir: .pytest_cache
+rootdir: /home/ali/my_projects/sytefy/backend
+configfile: pyproject.toml
+plugins: asyncio-0.24.0, anyio-4.11.0
+asyncio: mode=Mode.STRICT, default_loop_scope=None
+collecting ... collected 2 items
+
+tests/test_appointments.py::test_create_and_list_appointments INFO:sytefy.observability:{"method": "POST", "path": "/api/auth/register", "status_code": 201, "duration_ms": 209.46866600024805, "request_id": "-", "event": "request.completed", "level": "info", "timestamp": "2025-11-19T10:33:42.139114Z"}
+INFO:httpx:HTTP Request: POST http://testserver/api/auth/register "HTTP/1.1 201 Created"
+INFO:sytefy.observability:{"method": "POST", "path": "/api/auth/login", "status_code": 200, "duration_ms": 195.99602600101207, "request_id": "-", "event": "request.completed", "level": "info", "timestamp": "2025-11-19T10:33:42.336321Z"}
+INFO:httpx:HTTP Request: POST http://testserver/api/auth/login "HTTP/1.1 200 OK"
+INFO:sytefy_backend.modules.appointments.tasks:appointments.send_reminder {'appointment_id': 1, 'remind_at': '2025-11-19T12:03:42.337328+00:00', 'channels': ['log'], 'task_id': '3dc5e95a-a12b-497b-ad94-7d6efef96a7b'}
+INFO:sytefy.tasks.reminders:{"appointment_id": 1, "remind_at": "2025-11-19T12:03:42.337328+00:00", "channels": ["log"], "task_id": "3dc5e95a-a12b-497b-ad94-7d6efef96a7b", "event": "appointments.send_reminder", "level": "info", "timestamp": "2025-11-19T10:33:42.359575Z"}
+INFO:celery.app.trace:Task appointments.send_reminder[3dc5e95a-a12b-497b-ad94-7d6efef96a7b] succeeded in 0.005802764999316423s: {'appointment_id': 1, 'remind_at': '2025-11-19T12:03:42.337328+00:00', 'channels': ['log'], 'task_id': '3dc5e95a-a12b-497b-ad94-7d6efef96a7b'}
+INFO:sytefy.observability:{"method": "POST", "path": "/api/appointments/", "status_code": 201, "duration_ms": 31.752199998663855, "request_id": "-", "event": "request.completed", "level": "info", "timestamp": "2025-11-19T10:33:42.369557Z"}
+INFO:httpx:HTTP Request: POST http://testserver/api/appointments/ "HTTP/1.1 201 Created"
+INFO:sytefy.observability:{"method": "GET", "path": "/api/appointments/", "status_code": 200, "duration_ms": 3.8552629994228482, "request_id": "-", "event": "request.completed", "level": "info", "timestamp": "2025-11-19T10:33:42.374470Z"}
+INFO:httpx:HTTP Request: GET http://testserver/api/appointments/ "HTTP/1.1 200 OK"
+INFO:sytefy_backend.modules.appointments.tasks:appointments.send_reminder {'appointment_id': 1, 'remind_at': '2025-11-19T12:03:42.337328+00:00', 'channels': ['log', 'email'], 'task_id': '93a410b0-33e9-45fb-8a1f-e70fd025ec7e'}
+INFO:sytefy.tasks.reminders:{"appointment_id": 1, "remind_at": "2025-11-19T12:03:42.337328+00:00", "channels": ["log", "email"], "task_id": "93a410b0-33e9-45fb-8a1f-e70fd025ec7e", "event": "appointments.send_reminder", "level": "info", "timestamp": "2025-11-19T10:33:42.383597Z"}
+INFO:celery.app.trace:Task appointments.send_reminder[93a410b0-33e9-45fb-8a1f-e70fd025ec7e] succeeded in 0.00028690500039374456s: {'appointment_id': 1, 'remind_at': '2025-11-19T12:03:42.337328+00:00', 'channels': ['log', 'email'], 'task_id': '93a410b0-33e9-45fb-8a1f-e70fd025ec7e'}
+INFO:sytefy.observability:{"method": "PUT", "path": "/api/appointments/{appointment_id}", "status_code": 200, "duration_ms": 10.642638999343035, "request_id": "-", "event": "request.completed", "level": "info", "timestamp": "2025-11-19T10:33:42.385981Z"}
+INFO:httpx:HTTP Request: PUT http://testserver/api/appointments/1 "HTTP/1.1 200 OK"
+INFO:sytefy.observability:{"method": "POST", "path": "/api/appointments/{appointment_id}/cancel", "status_code": 200, "duration_ms": 14.082632000281592, "request_id": "-", "event": "request.completed", "level": "info", "timestamp": "2025-11-19T10:33:42.401009Z"}
+INFO:httpx:HTTP Request: POST http://testserver/api/appointments/1/cancel "HTTP/1.1 200 OK"
+PASSED
+tests/test_appointments.py::test_status_transition_rules INFO:sytefy.observability:{"method": "POST", "path": "/api/auth/register", "status_code": 201, "duration_ms": 207.42974799941294, "request_id": "-", "event": "request.completed", "level": "info", "timestamp": "2025-11-19T10:33:42.647877Z"}
+INFO:httpx:HTTP Request: POST http://testserver/api/auth/register "HTTP/1.1 201 Created"
+INFO:sytefy.observability:{"method": "POST", "path": "/api/auth/login", "status_code": 200, "duration_ms": 193.2791620001808, "request_id": "-", "event": "request.completed", "level": "info", "timestamp": "2025-11-19T10:33:42.842031Z"}
+INFO:httpx:HTTP Request: POST http://testserver/api/auth/login "HTTP/1.1 200 OK"
+INFO:sytefy_backend.modules.appointments.tasks:appointments.send_reminder {'appointment_id': 1, 'remind_at': '2025-11-19T13:03:42.842753+00:00', 'channels': ['log'], 'task_id': '4d123305-fa95-4108-9bf1-b96948f06089'}
+INFO:sytefy.tasks.reminders:{"appointment_id": 1, "remind_at": "2025-11-19T13:03:42.842753+00:00", "channels": ["log"], "task_id": "4d123305-fa95-4108-9bf1-b96948f06089", "event": "appointments.send_reminder", "level": "info", "timestamp": "2025-11-19T10:33:42.850098Z"}
+INFO:celery.app.trace:Task appointments.send_reminder[4d123305-fa95-4108-9bf1-b96948f06089] succeeded in 0.0003162379998684628s: {'appointment_id': 1, 'remind_at': '2025-11-19T13:03:42.842753+00:00', 'channels': ['log'], 'task_id': '4d123305-fa95-4108-9bf1-b96948f06089'}
+INFO:sytefy.observability:{"method": "POST", "path": "/api/appointments/", "status_code": 201, "duration_ms": 10.614144999635755, "request_id": "-", "event": "request.completed", "level": "info", "timestamp": "2025-11-19T10:33:42.853712Z"}
+INFO:httpx:HTTP Request: POST http://testserver/api/appointments/ "HTTP/1.1 201 Created"
+ERROR:sytefy.observability:{"method": "PUT", "path": "/api/appointments/{appointment_id}", "status_code": 500, "duration_ms": 4.117724000025191, "request_id": "-", "exc_info": true, "event": "request.failed", "level": "error", "timestamp": "2025-11-19T10:33:42.858724Z"}
+Traceback (most recent call last):
+  File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/base.py", line 157, in call_next
+    message = await recv_stream.receive()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/anyio/streams/memory.py", line 126, in receive
+    raise EndOfStream from None
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ali/my_projects/sytefy/backend/src/sytefy_backend/core/observability/middleware.py", line 28, in dispatch
+    response: Response = await call_next(request)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/base.py", line 163, in call_next
+    raise app_exc
+  File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/base.py", line 149, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/base.py", line 185, in __call__
+    with collapse_excgroups():
+  File "/usr/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/_utils.py", line 83, in collapse_excgroups
+    raise exc
+  File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/base.py", line 187, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ali/my_projects/sytefy/backend/src/sytefy_backend/core/security/middleware.py", line 24, in dispatch
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/base.py", line 163, in call_next
+    raise app_exc
+  File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/base.py", line 149, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/base.py", line 185, in __call__
+    with collapse_excgroups():
+  File "/usr/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/_utils.py", line 83, in collapse_excgroups
+    raise exc
+  File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/base.py", line 187, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ali/my_projects/sytefy/backend/src/sytefy_backend/core/security/middleware.py", line 35, in dispatch
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/base.py", line 163, in call_next
+    raise app_exc
+  File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/base.py", line 149, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/base.py", line 185, in __call__
+    with collapse_excgroups():
+  File "/usr/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/_utils.py", line 83, in collapse_excgroups
+    raise exc
+  File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/base.py", line 187, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ali/my_projects/sytefy/backend/src/sytefy_backend/core/security/middleware.py", line 57, in dispatch
+    return await call_next(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/base.py", line 163, in call_next
+    raise app_exc
+  File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/base.py", line 149, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/_exception_handler.py", line 62, in wrapped_app
+    raise exc
+  File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/_exception_handler.py", line 51, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/_exception_handler.py", line 62, in wrapped_app
+    raise exc
+  File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/_exception_handler.py", line 51, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/fastapi/routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/fastapi/routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ali/my_projects/sytefy/backend/src/sytefy_backend/modules/appointments/web/router.py", line 126, in update_appointment
+    updated = await use_case(
+              ^^^^^^^^^^^^^^^
+  File "/home/ali/my_projects/sytefy/backend/src/sytefy_backend/modules/appointments/application/use_cases.py", line 182, in __call__
+    _validate_status_transition(existing.status, status)
+  File "/home/ali/my_projects/sytefy/backend/src/sytefy_backend/modules/appointments/application/use_cases.py", line 126, in _validate_status_transition
+    raise ApplicationError("Geçersiz statü değeri.")
+sytefy_backend.core.exceptions.ApplicationError: Geçersiz statü değeri.
+FAILED
+
+=================================== FAILURES ===================================
+_________________________ test_status_transition_rules _________________________
+  + Exception Group Traceback (most recent call last):
+  |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/_utils.py", line 77, in collapse_excgroups
+  |     yield
+  |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/base.py", line 186, in __call__
+  |     async with anyio.create_task_group() as task_group:
+  |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 781, in __aexit__
+  |     raise BaseExceptionGroup(
+  | ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/_pytest/runner.py", line 341, in from_call
+    |     result: TResult | None = func()
+    |                              ^^^^^^
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/_pytest/runner.py", line 242, in <lambda>
+    |     lambda: runtest_hook(item=item, **kwds), when=when, reraise=reraise
+    |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/pluggy/_hooks.py", line 512, in __call__
+    |     return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/pluggy/_manager.py", line 120, in _hookexec
+    |     return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/pluggy/_callers.py", line 167, in _multicall
+    |     raise exception
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/pluggy/_callers.py", line 139, in _multicall
+    |     teardown.throw(exception)
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/_pytest/threadexception.py", line 92, in pytest_runtest_call
+    |     yield from thread_exception_runtest_hook()
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/_pytest/threadexception.py", line 68, in thread_exception_runtest_hook
+    |     yield
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/pluggy/_callers.py", line 139, in _multicall
+    |     teardown.throw(exception)
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/_pytest/unraisableexception.py", line 95, in pytest_runtest_call
+    |     yield from unraisable_exception_runtest_hook()
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/_pytest/unraisableexception.py", line 70, in unraisable_exception_runtest_hook
+    |     yield
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/pluggy/_callers.py", line 139, in _multicall
+    |     teardown.throw(exception)
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/_pytest/logging.py", line 848, in pytest_runtest_call
+    |     yield from self._runtest_for(item, "call")
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/_pytest/logging.py", line 831, in _runtest_for
+    |     yield
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/pluggy/_callers.py", line 139, in _multicall
+    |     teardown.throw(exception)
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/_pytest/capture.py", line 879, in pytest_runtest_call
+    |     return (yield)
+    |             ^^^^^
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/pluggy/_callers.py", line 139, in _multicall
+    |     teardown.throw(exception)
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/_pytest/skipping.py", line 257, in pytest_runtest_call
+    |     return (yield)
+    |             ^^^^^
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/pluggy/_callers.py", line 121, in _multicall
+    |     res = hook_impl.function(*args)
+    |           ^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/_pytest/runner.py", line 174, in pytest_runtest_call
+    |     item.runtest()
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/pytest_asyncio/plugin.py", line 457, in runtest
+    |     super().runtest()
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/_pytest/python.py", line 1627, in runtest
+    |     self.ihook.pytest_pyfunc_call(pyfuncitem=self)
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/pluggy/_hooks.py", line 512, in __call__
+    |     return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/pluggy/_manager.py", line 120, in _hookexec
+    |     return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/pluggy/_callers.py", line 167, in _multicall
+    |     raise exception
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/pluggy/_callers.py", line 139, in _multicall
+    |     teardown.throw(exception)
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/pluggy/_callers.py", line 53, in run_old_style_hookwrapper
+    |     return result.get_result()
+    |            ^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/pluggy/_result.py", line 103, in get_result
+    |     raise exc.with_traceback(tb)
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/pluggy/_callers.py", line 38, in run_old_style_hookwrapper
+    |     res = yield
+    |           ^^^^^
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/pluggy/_callers.py", line 121, in _multicall
+    |     res = hook_impl.function(*args)
+    |           ^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/_pytest/python.py", line 159, in pytest_pyfunc_call
+    |     result = testfunction(**testargs)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/pytest_asyncio/plugin.py", line 929, in inner
+    |     _loop.run_until_complete(task)
+    |   File "/usr/lib/python3.12/asyncio/base_events.py", line 687, in run_until_complete
+    |     return future.result()
+    |            ^^^^^^^^^^^^^^^
+    |   File "/home/ali/my_projects/sytefy/backend/tests/test_appointments.py", line 75, in test_status_transition_rules
+    |     invalid_status = await test_client.put(f"/api/appointments/{appointment_id}", json={"status": "invalid"})
+    |                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/httpx/_client.py", line 1929, in put
+    |     return await self.request(
+    |            ^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/httpx/_client.py", line 1574, in request
+    |     return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/httpx/_client.py", line 1661, in send
+    |     response = await self._send_handling_auth(
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/httpx/_client.py", line 1689, in _send_handling_auth
+    |     response = await self._send_handling_redirects(
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/httpx/_client.py", line 1726, in _send_handling_redirects
+    |     response = await self._send_single_request(request)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/httpx/_client.py", line 1763, in _send_single_request
+    |     response = await transport.handle_async_request(request)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/httpx/_transports/asgi.py", line 164, in handle_async_request
+    |     await self.app(scope, receive, send)
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/fastapi/applications.py", line 1054, in __call__
+    |     await super().__call__(scope, receive, send)
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/applications.py", line 113, in __call__
+    |     await self.middleware_stack(scope, receive, send)
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/errors.py", line 187, in __call__
+    |     raise exc
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    |     await self.app(scope, receive, _send)
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/base.py", line 185, in __call__
+    |     with collapse_excgroups():
+    |   File "/usr/lib/python3.12/contextlib.py", line 158, in __exit__
+    |     self.gen.throw(value)
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/_utils.py", line 83, in collapse_excgroups
+    |     raise exc
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/base.py", line 187, in __call__
+    |     response = await self.dispatch_func(request, call_next)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ali/my_projects/sytefy/backend/src/sytefy_backend/core/observability/middleware.py", line 28, in dispatch
+    |     response: Response = await call_next(request)
+    |                          ^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/base.py", line 163, in call_next
+    |     raise app_exc
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/base.py", line 149, in coro
+    |     await self.app(scope, receive_or_disconnect, send_no_error)
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/base.py", line 185, in __call__
+    |     with collapse_excgroups():
+    |   File "/usr/lib/python3.12/contextlib.py", line 158, in __exit__
+    |     self.gen.throw(value)
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/_utils.py", line 83, in collapse_excgroups
+    |     raise exc
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/base.py", line 187, in __call__
+    |     response = await self.dispatch_func(request, call_next)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ali/my_projects/sytefy/backend/src/sytefy_backend/core/security/middleware.py", line 24, in dispatch
+    |     response = await call_next(request)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/base.py", line 163, in call_next
+    |     raise app_exc
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/base.py", line 149, in coro
+    |     await self.app(scope, receive_or_disconnect, send_no_error)
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/cors.py", line 85, in __call__
+    |     await self.app(scope, receive, send)
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/base.py", line 185, in __call__
+    |     with collapse_excgroups():
+    |   File "/usr/lib/python3.12/contextlib.py", line 158, in __exit__
+    |     self.gen.throw(value)
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/_utils.py", line 83, in collapse_excgroups
+    |     raise exc
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/base.py", line 187, in __call__
+    |     response = await self.dispatch_func(request, call_next)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ali/my_projects/sytefy/backend/src/sytefy_backend/core/security/middleware.py", line 35, in dispatch
+    |     response = await call_next(request)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/base.py", line 163, in call_next
+    |     raise app_exc
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/base.py", line 149, in coro
+    |     await self.app(scope, receive_or_disconnect, send_no_error)
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/base.py", line 185, in __call__
+    |     with collapse_excgroups():
+    |   File "/usr/lib/python3.12/contextlib.py", line 158, in __exit__
+    |     self.gen.throw(value)
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/_utils.py", line 83, in collapse_excgroups
+    |     raise exc
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/base.py", line 187, in __call__
+    |     response = await self.dispatch_func(request, call_next)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ali/my_projects/sytefy/backend/src/sytefy_backend/core/security/middleware.py", line 57, in dispatch
+    |     return await call_next(request)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/base.py", line 163, in call_next
+    |     raise app_exc
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/base.py", line 149, in coro
+    |     await self.app(scope, receive_or_disconnect, send_no_error)
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    |     await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/_exception_handler.py", line 62, in wrapped_app
+    |     raise exc
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/_exception_handler.py", line 51, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/routing.py", line 715, in __call__
+    |     await self.middleware_stack(scope, receive, send)
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/routing.py", line 735, in app
+    |     await route.handle(scope, receive, send)
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/routing.py", line 288, in handle
+    |     await self.app(scope, receive, send)
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/routing.py", line 76, in app
+    |     await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/_exception_handler.py", line 62, in wrapped_app
+    |     raise exc
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/_exception_handler.py", line 51, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/routing.py", line 73, in app
+    |     response = await f(request)
+    |                ^^^^^^^^^^^^^^^^
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/fastapi/routing.py", line 301, in app
+    |     raw_response = await run_endpoint_function(
+    |                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/fastapi/routing.py", line 212, in run_endpoint_function
+    |     return await dependant.call(**values)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ali/my_projects/sytefy/backend/src/sytefy_backend/modules/appointments/web/router.py", line 126, in update_appointment
+    |     updated = await use_case(
+    |               ^^^^^^^^^^^^^^^
+    |   File "/home/ali/my_projects/sytefy/backend/src/sytefy_backend/modules/appointments/application/use_cases.py", line 182, in __call__
+    |     _validate_status_transition(existing.status, status)
+    |   File "/home/ali/my_projects/sytefy/backend/src/sytefy_backend/modules/appointments/application/use_cases.py", line 126, in _validate_status_transition
+    |     raise ApplicationError("Geçersiz statü değeri.")
+    | sytefy_backend.core.exceptions.ApplicationError: Geçersiz statü değeri.
+    +------------------------------------
+
+During handling of the above exception, another exception occurred:
+
+test_client = <httpx.AsyncClient object at 0x7f05f76942f0>
+
+    @pytest.mark.asyncio
+    async def test_status_transition_rules(test_client: AsyncClient):
+        user_payload = {"email": "apt2@example.com", "username": "aptuser2", "password": "StrongPass123!"}
+        resp = await test_client.post("/api/auth/register", json=user_payload)
+        assert resp.status_code == 201
+        login = await test_client.post("/api/auth/login", json={"email": user_payload["email"], "password": user_payload["password"]})
+        assert login.status_code == 200
+    
+        start = datetime.now(timezone.utc) + timedelta(hours=3)
+        end = start + timedelta(hours=1)
+        create_resp = await test_client.post(
+            "/api/appointments/",
+            json={
+                "title": "Kontrol",
+                "start_at": start.isoformat(),
+                "end_at": end.isoformat(),
+            },
+        )
+        assert create_resp.status_code == 201
+        appointment_id = create_resp.json()["id"]
+    
+>       invalid_status = await test_client.put(f"/api/appointments/{appointment_id}", json={"status": "invalid"})
+
+tests/test_appointments.py:75: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../../.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/httpx/_client.py:1929: in put
+    return await self.request(
+../../../.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/httpx/_client.py:1574: in request
+    return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+../../../.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/httpx/_client.py:1661: in send
+    response = await self._send_handling_auth(
+../../../.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/httpx/_client.py:1689: in _send_handling_auth
+    response = await self._send_handling_redirects(
+../../../.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/httpx/_client.py:1726: in _send_handling_redirects
+    response = await self._send_single_request(request)
+../../../.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/httpx/_client.py:1763: in _send_single_request
+    response = await transport.handle_async_request(request)
+../../../.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/httpx/_transports/asgi.py:164: in handle_async_request
+    await self.app(scope, receive, send)
+../../../.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/fastapi/applications.py:1054: in __call__
+    await super().__call__(scope, receive, send)
+../../../.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/applications.py:113: in __call__
+    await self.middleware_stack(scope, receive, send)
+../../../.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/errors.py:187: in __call__
+    raise exc
+../../../.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/errors.py:165: in __call__
+    await self.app(scope, receive, _send)
+../../../.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/base.py:185: in __call__
+    with collapse_excgroups():
+/usr/lib/python3.12/contextlib.py:158: in __exit__
+    self.gen.throw(value)
+../../../.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/_utils.py:83: in collapse_excgroups
+    raise exc
+../../../.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/base.py:187: in __call__
+    response = await self.dispatch_func(request, call_next)
+src/sytefy_backend/core/observability/middleware.py:28: in dispatch
+    response: Response = await call_next(request)
+../../../.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/base.py:163: in call_next
+    raise app_exc
+../../../.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/base.py:149: in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+../../../.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/base.py:185: in __call__
+    with collapse_excgroups():
+/usr/lib/python3.12/contextlib.py:158: in __exit__
+    self.gen.throw(value)
+../../../.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/_utils.py:83: in collapse_excgroups
+    raise exc
+../../../.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/base.py:187: in __call__
+    response = await self.dispatch_func(request, call_next)
+src/sytefy_backend/core/security/middleware.py:24: in dispatch
+    response = await call_next(request)
+../../../.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/base.py:163: in call_next
+    raise app_exc
+../../../.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/base.py:149: in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+../../../.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/cors.py:85: in __call__
+    await self.app(scope, receive, send)
+../../../.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/base.py:185: in __call__
+    with collapse_excgroups():
+/usr/lib/python3.12/contextlib.py:158: in __exit__
+    self.gen.throw(value)
+../../../.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/_utils.py:83: in collapse_excgroups
+    raise exc
+../../../.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/base.py:187: in __call__
+    response = await self.dispatch_func(request, call_next)
+src/sytefy_backend/core/security/middleware.py:35: in dispatch
+    response = await call_next(request)
+../../../.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/base.py:163: in call_next
+    raise app_exc
+../../../.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/base.py:149: in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+../../../.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/base.py:185: in __call__
+    with collapse_excgroups():
+/usr/lib/python3.12/contextlib.py:158: in __exit__
+    self.gen.throw(value)
+../../../.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/_utils.py:83: in collapse_excgroups
+    raise exc
+../../../.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/base.py:187: in __call__
+    response = await self.dispatch_func(request, call_next)
+src/sytefy_backend/core/security/middleware.py:57: in dispatch
+    return await call_next(request)
+../../../.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/base.py:163: in call_next
+    raise app_exc
+../../../.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/base.py:149: in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+../../../.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/exceptions.py:62: in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+../../../.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/_exception_handler.py:62: in wrapped_app
+    raise exc
+../../../.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/_exception_handler.py:51: in wrapped_app
+    await app(scope, receive, sender)
+../../../.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/routing.py:715: in __call__
+    await self.middleware_stack(scope, receive, send)
+../../../.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/routing.py:735: in app
+    await route.handle(scope, receive, send)
+../../../.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/routing.py:288: in handle
+    await self.app(scope, receive, send)
+../../../.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/routing.py:76: in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+../../../.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/_exception_handler.py:62: in wrapped_app
+    raise exc
+../../../.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/_exception_handler.py:51: in wrapped_app
+    await app(scope, receive, sender)
+../../../.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/routing.py:73: in app
+    response = await f(request)
+../../../.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/fastapi/routing.py:301: in app
+    raw_response = await run_endpoint_function(
+../../../.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/fastapi/routing.py:212: in run_endpoint_function
+    return await dependant.call(**values)
+src/sytefy_backend/modules/appointments/web/router.py:126: in update_appointment
+    updated = await use_case(
+src/sytefy_backend/modules/appointments/application/use_cases.py:182: in __call__
+    _validate_status_transition(existing.status, status)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+current = 'scheduled', new = 'invalid'
+
+    def _validate_status_transition(current: str, new: str) -> None:
+        new = new.lower()
+        if new not in ALLOWED_STATUSES:
+>           raise ApplicationError("Geçersiz statü değeri.")
+E           sytefy_backend.core.exceptions.ApplicationError: Geçersiz statü değeri.
+
+src/sytefy_backend/modules/appointments/application/use_cases.py:126: ApplicationError
+------------------------------ Captured log call -------------------------------
+INFO     sytefy.observability:middleware.py:44 {"method": "POST", "path": "/api/auth/register", "status_code": 201, "duration_ms": 207.42974799941294, "request_id": "-", "event": "request.completed", "level": "info", "timestamp": "2025-11-19T10:33:42.647877Z"}
+INFO     httpx:_client.py:1773 HTTP Request: POST http://testserver/api/auth/register "HTTP/1.1 201 Created"
+INFO     sytefy.observability:middleware.py:44 {"method": "POST", "path": "/api/auth/login", "status_code": 200, "duration_ms": 193.2791620001808, "request_id": "-", "event": "request.completed", "level": "info", "timestamp": "2025-11-19T10:33:42.842031Z"}
+INFO     httpx:_client.py:1773 HTTP Request: POST http://testserver/api/auth/login "HTTP/1.1 200 OK"
+INFO     sytefy_backend.modules.appointments.tasks:tasks.py:30 appointments.send_reminder {'appointment_id': 1, 'remind_at': '2025-11-19T13:03:42.842753+00:00', 'channels': ['log'], 'task_id': '4d123305-fa95-4108-9bf1-b96948f06089'}
+INFO     sytefy.tasks.reminders:tasks.py:31 {"appointment_id": 1, "remind_at": "2025-11-19T13:03:42.842753+00:00", "channels": ["log"], "task_id": "4d123305-fa95-4108-9bf1-b96948f06089", "event": "appointments.send_reminder", "level": "info", "timestamp": "2025-11-19T10:33:42.850098Z"}
+INFO     celery.app.trace:trace.py:128 Task appointments.send_reminder[4d123305-fa95-4108-9bf1-b96948f06089] succeeded in 0.0003162379998684628s: {'appointment_id': 1, 'remind_at': '2025-11-19T13:03:42.842753+00:00', 'channels': ['log'], 'task_id': '4d123305-fa95-4108-9bf1-b96948f06089'}
+INFO     sytefy.observability:middleware.py:44 {"method": "POST", "path": "/api/appointments/", "status_code": 201, "duration_ms": 10.614144999635755, "request_id": "-", "event": "request.completed", "level": "info", "timestamp": "2025-11-19T10:33:42.853712Z"}
+INFO     httpx:_client.py:1773 HTTP Request: POST http://testserver/api/appointments/ "HTTP/1.1 201 Created"
+ERROR    sytefy.observability:middleware.py:33 {"method": "PUT", "path": "/api/appointments/{appointment_id}", "status_code": 500, "duration_ms": 4.117724000025191, "request_id": "-", "exc_info": true, "event": "request.failed", "level": "error", "timestamp": "2025-11-19T10:33:42.858724Z"}
+Traceback (most recent call last):
+  File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/base.py", line 157, in call_next
+    message = await recv_stream.receive()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/anyio/streams/memory.py", line 126, in receive
+    raise EndOfStream from None
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ali/my_projects/sytefy/backend/src/sytefy_backend/core/observability/middleware.py", line 28, in dispatch
+    response: Response = await call_next(request)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/base.py", line 163, in call_next
+    raise app_exc
+  File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/base.py", line 149, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/base.py", line 185, in __call__
+    with collapse_excgroups():
+  File "/usr/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/_utils.py", line 83, in collapse_excgroups
+    raise exc
+  File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/base.py", line 187, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ali/my_projects/sytefy/backend/src/sytefy_backend/core/security/middleware.py", line 24, in dispatch
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/base.py", line 163, in call_next
+    raise app_exc
+  File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/base.py", line 149, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/base.py", line 185, in __call__
+    with collapse_excgroups():
+  File "/usr/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/_utils.py", line 83, in collapse_excgroups
+    raise exc
+  File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/base.py", line 187, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ali/my_projects/sytefy/backend/src/sytefy_backend/core/security/middleware.py", line 35, in dispatch
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/base.py", line 163, in call_next
+    raise app_exc
+  File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/base.py", line 149, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/base.py", line 185, in __call__
+    with collapse_excgroups():
+  File "/usr/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/_utils.py", line 83, in collapse_excgroups
+    raise exc
+  File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/base.py", line 187, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ali/my_projects/sytefy/backend/src/sytefy_backend/core/security/middleware.py", line 57, in dispatch
+    return await call_next(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/base.py", line 163, in call_next
+    raise app_exc
+  File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/base.py", line 149, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/_exception_handler.py", line 62, in wrapped_app
+    raise exc
+  File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/_exception_handler.py", line 51, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/_exception_handler.py", line 62, in wrapped_app
+    raise exc
+  File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/_exception_handler.py", line 51, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/starlette/routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/fastapi/routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/fastapi/routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ali/my_projects/sytefy/backend/src/sytefy_backend/modules/appointments/web/router.py", line 126, in update_appointment
+    updated = await use_case(
+              ^^^^^^^^^^^^^^^
+  File "/home/ali/my_projects/sytefy/backend/src/sytefy_backend/modules/appointments/application/use_cases.py", line 182, in __call__
+    _validate_status_transition(existing.status, status)
+  File "/home/ali/my_projects/sytefy/backend/src/sytefy_backend/modules/appointments/application/use_cases.py", line 126, in _validate_status_transition
+    raise ApplicationError("Geçersiz statü değeri.")
+sytefy_backend.core.exceptions.ApplicationError: Geçersiz statü değeri.
+=============================== warnings summary ===============================
+../../../.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/pydantic/_internal/_config.py:291
+  /home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/pydantic/_internal/_config.py:291: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.8/migration/
+    warnings.warn(DEPRECATION_MESSAGE, DeprecationWarning)
+
+tests/test_appointments.py::test_create_and_list_appointments
+tests/test_appointments.py::test_status_transition_rules
+  /home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/httpx/_client.py:1426: DeprecationWarning: The 'app' shortcut is now deprecated. Use the explicit style 'transport=ASGITransport(app=...)' instead.
+    warnings.warn(message, DeprecationWarning)
+
+tests/test_appointments.py: 29 warnings
+  /home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/sqlalchemy/sql/schema.py:3594: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    return util.wrap_callable(lambda ctx: fn(), fn)  # type: ignore
+
+tests/test_appointments.py::test_create_and_list_appointments
+tests/test_appointments.py::test_create_and_list_appointments
+tests/test_appointments.py::test_create_and_list_appointments
+tests/test_appointments.py::test_create_and_list_appointments
+tests/test_appointments.py::test_status_transition_rules
+tests/test_appointments.py::test_status_transition_rules
+  /home/ali/.cache/pypoetry/virtualenvs/sytefy-backend-Tr17Md2n-py3.12/lib/python3.12/site-packages/jose/jwt.py:311: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    now = timegm(datetime.utcnow().utctimetuple())
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_appointments.py::test_status_transition_rules - sytefy_backend.core.exceptions.ApplicationError: Geçersiz statü değeri.
+=================== 1 failed, 1 passed, 38 warnings in 1.22s ===================
